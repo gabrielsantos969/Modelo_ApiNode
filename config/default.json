@@ -1,0 +1,19 @@
+{
+    "server": {
+        "port": 9999
+    },
+    "database": {
+        "host": "127.0.0.1",
+        "user": "root",
+        "password": "senha", 
+        "database": "nome_database",
+        "port": 3306,
+        "connectTimeout": 60000
+    }, 
+    "secretKeys":{
+        "secretKeyjsonWebToken": "Aqui são outras variaves que você pode criar, como links e tals para pegar os dados daqui."
+    },
+    "outros_link":{
+        "link_api": "link aqui e por ai vai, pode botar o que quiser."
+    }
+}

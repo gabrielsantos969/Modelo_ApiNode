@@ -1,0 +1,32 @@
+{
+  "name": "systemlivechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielsantos969/SystemLivechat.git"
+  },
+  "author": "Gabriel Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielsantos969/SystemLivechat/issues"
+  },
+  "homepage": "https://github.com/gabrielsantos969/SystemLivechat#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "config": "^3.3.9",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

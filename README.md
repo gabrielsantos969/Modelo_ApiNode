@@ -1,0 +1,3 @@
+# SystemLivechat
+
+SENHA DO BANCO DE DADOS: HdcSSVyjrGtHFe9E
