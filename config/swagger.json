@@ -1,0 +1,325 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Titulo da documentação",
+        "description": "Descrição da documentação.",
+        "termsOfService": "Link de termos",
+        "contact": {
+            "email": "email de contato"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/",
+            "description": "Url do projeto localhost"
+        },
+        {
+            "url": "http://00.000.000.000/",
+            "description": "Outra url para produção. PAara testes, da pra adicionar mais urls, só copiar e colar abaixo."
+        }
+    ],
+    "paths": {
+        "/user/create": {
+            "post": {
+                "summary": "Cadastro de usuario.",
+                "description": "Cadastra um novo usuario no sistema.",
+                "tags": ["User"],
+                "security": [{"ApiKeyAuth": []}],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "name": "João",
+                                        "username": "joaozinho",
+                                        "cpf": "000.000.000-00",
+                                        "role": "A",
+                                        "email": "joaozinho@gmail.com",
+                                        "cellphone": "(00)9 0000-0000",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    
+                                    "type": "object", 
+                                    "$ref": "#/components/schemas/User"
+                                    
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                    
+                }
+            }
+        },
+        "/user/username={username}": {
+            "get": {
+                "summary": "Faz a busca de usuario por nome.",
+                "description": "Traz os usuarios conforme o nome passado.",
+                "tags": ["User"],
+                "security": [{"ApiKeyAuth": []}],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "Nome de usuario.",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema":{                                    
+                                    "type": "array", 
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/user/user_id={userId}": {
+            "get": {
+                "summary": "Faz a busca de usuario por ID.",
+                "description": "Traz os usuarios pelo ID.",
+                "tags": ["User"],
+                "security": [{"ApiKeyAuth": []}],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "ID do usuario",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema":{                                    
+                                    "type": "object",                                    
+                                    "$ref": "#/components/schemas/User"                                    
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "summary": "Todos os usuarios.",
+                "description": "Traz todos os usuarios do sistema",
+                "tags": ["User"],
+                "security": [{"ApiKeyAuth": []}],
+                "parameters": [
+                   
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema":{                                    
+                                    "type": "array", 
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/user/update/user_id={userId}": {
+            "put": {
+                "summary": "Faz alteração de usuario por ID.",
+                "description": "Faz alteração pelo ID.",
+                "tags": ["User"],
+                "security": [{"ApiKeyAuth": []}],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "ID do usuario",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "name": "João Alterado",
+                                        "username": "joaozinho_alterado",
+                                        "cpf": "000.000.000-01",
+                                        "role": "A",
+                                        "email": "joaozinho@gmail.com",
+                                        "cellphone": "(00)9 0000-0001",
+                                        "password": "123456"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema":{                                    
+                                    "type": "object",                                    
+                                    "$ref": "#/components/schemas/User"                                    
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/user/delete/user_id={userId}": {
+            "delete": {
+                "summary": "Deleta usuario por ID.",
+                "description": "Deleta pelo ID.",
+                "tags": ["User"],
+                "security": [{"ApiKeyAuth": []}],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "ID do usuario",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema":{                                    
+                                    "type": "object",                                    
+                                    "$ref": "#/components/schemas/User"                                    
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name":{
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "role":{
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "cellphone": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "ApiKeyAuth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization"
+            }
+        }
+    }
+    
+}
