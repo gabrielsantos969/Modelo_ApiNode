@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Titulo da documentação",
-        "description": "Descrição da documentação.",
+        "description": "Descrição da documentação. \nDocumentação Swagger: https://swagger.io/docs/specification/basic-structure/",
         "termsOfService": "Link de termos",
         "contact": {
             "email": "email de contato"
@@ -16,7 +16,7 @@
         },
         {
             "url": "http://00.000.000.000/",
-            "description": "Outra url para produção. PAara testes, da pra adicionar mais urls, só copiar e colar abaixo."
+            "description": "Outra url para produção. PAara testes, da pra adicionar mais urls, só copiar e colar"
         }
     ],
     "paths": {
